@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WebAPI.Helpers;
 
-namespace WebAPI.Extentions
+namespace WebAPI.Extensions
 {
     public class UserService : IUserService
     {
