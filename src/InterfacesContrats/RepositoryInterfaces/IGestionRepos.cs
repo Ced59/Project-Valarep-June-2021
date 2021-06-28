@@ -8,6 +8,11 @@ namespace InterfacesContrats.RepositoryInterfaces
 {
     public interface IGestionRepos
     {
+        ICarburantRepo Carburant { get; }
+        IMarqueStationRepo MarqueStation { get; }
+        IReleveRepo Releve { get; }
+        IStationServiceRepo StationService { get; }
+        IUserRepo UserRepo { get; }
         void Save();
     }
 }

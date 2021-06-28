@@ -11,10 +11,15 @@ namespace Entities.Models
 {
     public class User
     {
+        [Column("Id_US")]
         public int Id { get; set; }
+        [Required(ErrorMessage = "L'email est requis")]
         public string Login { get; set; }
+
+        [Required(ErrorMessage = "Le pseudo est requis")]
         public string Pseudo { get; set; }
 
+        [Required(ErrorMessage = "Le mot de passe est requis")]
         [JsonIgnore]
         public string Password { get; set; }
     }
