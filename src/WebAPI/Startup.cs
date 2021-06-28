@@ -14,6 +14,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebAPI.Extentions;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 namespace WebAPI
 {
@@ -31,6 +33,10 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.ConfigureServiceLogging();
+
+            const string corsUrlKey = "Security:Cors:Url";
+
+
 
             //services.ConfigureGestionRepos();
 
