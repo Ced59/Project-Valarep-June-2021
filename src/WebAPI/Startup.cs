@@ -20,6 +20,7 @@ using System.Text;
 using WebAPI.Helpers;
 using InterfacesContrats.UserInterfaces;
 using WebApi.Helpers;
+using Entities.Repo;
 
 namespace WebAPI
 {
@@ -42,10 +43,9 @@ namespace WebAPI
 
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
-            // configure DI for application services
             services.AddScoped<IUserService, UserService>();
 
-            services.AddScoped<IUserService, UserService>();
+            services.ConfigureContextSql(Configuration);
 
             services.ConfigureGestionRepos();
 
