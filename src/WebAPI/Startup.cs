@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using WebAPI.Extentions;
+using WebAPI.Extensions;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -45,7 +45,9 @@ namespace WebAPI
             // configure DI for application services
             services.AddScoped<IUserService, UserService>();
 
-            //services.ConfigureGestionRepos();
+            services.AddScoped<IUserService, UserService>();
+
+            services.ConfigureGestionRepos();
 
             //TODO : Ajouter la config mapper ici
 
