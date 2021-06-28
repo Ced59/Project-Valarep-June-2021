@@ -14,6 +14,6 @@ namespace Entities.Models
         public Guid Id { get; set; }
 
         [Required(ErrorMessage = "Le nom de la marque est requis")]
-        public string libelle { get; set; }
+        public string Libelle { get; set; }
     }
 }

@@ -14,12 +14,12 @@ namespace Entities.Models
         public Guid Id { get; set; }
 
         [Required(ErrorMessage = "L'adresse est requise pour la station service")]
-        public string adresse { get; set; }
+        public string Adresse { get; set; }
 
         [Required(ErrorMessage = "La latitude est requise")]
-        public string latitude { get; set; }
+        public string Latitude { get; set; }
 
         [Required(ErrorMessage = "La longitude est requise")]
-        public string longitude { get; set; }
+        public string Longitude { get; set; }
     }
 }

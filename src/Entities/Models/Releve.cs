@@ -14,9 +14,9 @@ namespace Entities.Models
         public Guid Id { get; set; }
 
         [Required(ErrorMessage = "La date du relevé est requise")]
-        public DateTime date { get; set; }
+        public DateTime Date { get; set; }
 
         [Required(ErrorMessage = "Le prix de la pompe est requise")]
-        public decimal prix { get; set; }
+        public decimal Prix { get; set; }
     }
 }

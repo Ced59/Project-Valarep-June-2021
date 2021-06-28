@@ -14,9 +14,9 @@ namespace Entities.Models
         public Guid Id { get; set; }
 
         [Required(ErrorMessage = "Le nom du carburant est requis")]
-        public string libelle { get; set; }
+        public string Libelle { get; set; }
 
         [Required(ErrorMessage = "Le Code Européen du Carburant est requis")]
-        public string codeEu { get; set; }
+        public string CodeEu { get; set; }
     }
 }
