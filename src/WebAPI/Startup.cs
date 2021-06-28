@@ -16,6 +16,10 @@ using WebAPI.Extentions;
 using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using WebAPI.Helpers;
+using InterfacesContrats.UserInterfaces;
+using WebApi.Helpers;
 
 namespace WebAPI
 {
@@ -34,9 +38,12 @@ namespace WebAPI
         {
             services.ConfigureServiceLogging();
 
-            const string corsUrlKey = "Security:Cors:Url";
+            services.AddCors();
 
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
+            // configure DI for application services
+            services.AddScoped<IUserService, UserService>();
 
             //services.ConfigureGestionRepos();
 
@@ -73,6 +80,14 @@ namespace WebAPI
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+
+            // custom jwt auth middleware
+            app.UseMiddleware<JwtMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {
