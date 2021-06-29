@@ -22,6 +22,8 @@ using InterfacesContrats.UserInterfaces;
 using WebApi.Helpers;
 using Entities.Repo;
 using WebAPI.AutoMapper;
+using InterfacesContrats.RepositoryInterfaces;
+using Repositories;
 
 namespace WebAPI
 {

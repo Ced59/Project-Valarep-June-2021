@@ -24,11 +24,12 @@ namespace WebAPI.Extensions
         public UserService(IOptions<AppSettings> appSettings)
         {
             _appSettings = appSettings.Value;
+            _user = new User();
         }
 
         public AuthenticateResponse Authenticate(AuthenticateRequest model, IUserRepo userRepo)
         {
-            var _user = userRepo.GetUser(false, model.Username, model.Password);
+            _user = userRepo.GetUser(false, model.Username, model.Password);
 
             // return null if user not found
             if (_user == null) return null;
