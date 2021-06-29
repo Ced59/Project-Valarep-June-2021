@@ -12,7 +12,7 @@ namespace InterfacesContrats.RepositoryInterfaces
         IMarqueRepo MarqueStation { get; }
         IReleveRepo Releve { get; }
         IStationServiceRepo StationService { get; }
-        IUserRepo UserRepo { get; }
+        IUserRepo User { get; }
         void Save();
     }
 }
