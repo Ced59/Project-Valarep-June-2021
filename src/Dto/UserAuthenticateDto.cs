@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Dto
 {
-    public class UserDto
+    public class UserAuthenticateDto
     {
         public Guid Id { get; set; }
         public string Login { get; set; }
         public string Pseudo { get; set; }
-        public string Password { get; set; }
+        public string Token { get; set; }
     }
 }
