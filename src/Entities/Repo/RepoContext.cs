@@ -46,6 +46,10 @@ namespace Entities.Repo
             builder.ApplyConfiguration(new ConfigCarburants());
 
             builder.ApplyConfiguration(new ConfigMarque());
+
+            builder.ApplyConfiguration(new ConfigStationServices());
+
+            builder.ApplyConfiguration(new ConfigStationServiceCarburants());
         }
     }
 }

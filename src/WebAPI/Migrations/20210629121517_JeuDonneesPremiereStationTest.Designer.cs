@@ -4,14 +4,16 @@ using Entities.Repo;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace WebAPI.Migrations
 {
     [DbContext(typeof(RepoContext))]
-    partial class RepoContextModelSnapshot : ModelSnapshot
+    [Migration("20210629121517_JeuDonneesPremiereStationTest")]
+    partial class JeuDonneesPremiereStationTest
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -331,22 +333,6 @@ namespace WebAPI.Migrations
                             Latitude = "50.3453386677043",
                             Longitude = "3.479521676283144",
                             MarqueId = new Guid("3d173fb6-f8c9-47c1-bff9-d6b8c567af8f")
-                        },
-                        new
-                        {
-                            Id = new Guid("ed772bc2-69fd-432a-9a0c-f7f8317763c0"),
-                            Adresse = "59125 Trith-Saint-Léger",
-                            Latitude = "50.33483671401915",
-                            Longitude = "3.4815290258130953",
-                            MarqueId = new Guid("9a8fefeb-df33-4297-9c39-1f2190df8fe4")
-                        },
-                        new
-                        {
-                            Id = new Guid("3ca237c2-f23b-4361-8708-d5654fb247af"),
-                            Adresse = "27 Boulevard Saly, 59300 Valenciennes",
-                            Latitude = "50.35364007720023",
-                            Longitude = "3.5202011928830075",
-                            MarqueId = new Guid("9809b58b-f3a4-430f-895c-9732214603dd")
                         });
                 });
 
@@ -363,83 +349,6 @@ namespace WebAPI.Migrations
                     b.HasIndex("StationServiceId");
 
                     b.ToTable("StationServiceCarburants");
-
-                    b.HasData(
-                        new
-                        {
-                            CarburantId = new Guid("8caad7e2-e40a-4328-95ce-74dbb8ba10b2"),
-                            StationServiceId = new Guid("89223c2d-d43e-4c90-a33d-793e8e328cbc")
-                        },
-                        new
-                        {
-                            CarburantId = new Guid("3d700748-8267-43e9-9bf5-dd54a536f7c5"),
-                            StationServiceId = new Guid("89223c2d-d43e-4c90-a33d-793e8e328cbc")
-                        },
-                        new
-                        {
-                            CarburantId = new Guid("e1db6bfb-4af1-4d33-b06a-072be46dd74b"),
-                            StationServiceId = new Guid("89223c2d-d43e-4c90-a33d-793e8e328cbc")
-                        },
-                        new
-                        {
-                            CarburantId = new Guid("99c87086-7167-4b8d-b799-32d59dfaaac3"),
-                            StationServiceId = new Guid("89223c2d-d43e-4c90-a33d-793e8e328cbc")
-                        },
-                        new
-                        {
-                            CarburantId = new Guid("8e4431db-7fb1-4586-b61b-96d08b41ee12"),
-                            StationServiceId = new Guid("89223c2d-d43e-4c90-a33d-793e8e328cbc")
-                        },
-                        new
-                        {
-                            CarburantId = new Guid("8caad7e2-e40a-4328-95ce-74dbb8ba10b2"),
-                            StationServiceId = new Guid("ed772bc2-69fd-432a-9a0c-f7f8317763c0")
-                        },
-                        new
-                        {
-                            CarburantId = new Guid("3d700748-8267-43e9-9bf5-dd54a536f7c5"),
-                            StationServiceId = new Guid("ed772bc2-69fd-432a-9a0c-f7f8317763c0")
-                        },
-                        new
-                        {
-                            CarburantId = new Guid("e1db6bfb-4af1-4d33-b06a-072be46dd74b"),
-                            StationServiceId = new Guid("ed772bc2-69fd-432a-9a0c-f7f8317763c0")
-                        },
-                        new
-                        {
-                            CarburantId = new Guid("99c87086-7167-4b8d-b799-32d59dfaaac3"),
-                            StationServiceId = new Guid("ed772bc2-69fd-432a-9a0c-f7f8317763c0")
-                        },
-                        new
-                        {
-                            CarburantId = new Guid("8e4431db-7fb1-4586-b61b-96d08b41ee12"),
-                            StationServiceId = new Guid("ed772bc2-69fd-432a-9a0c-f7f8317763c0")
-                        },
-                        new
-                        {
-                            CarburantId = new Guid("8caad7e2-e40a-4328-95ce-74dbb8ba10b2"),
-                            StationServiceId = new Guid("3ca237c2-f23b-4361-8708-d5654fb247af")
-                        },
-                        new
-                        {
-                            CarburantId = new Guid("3d700748-8267-43e9-9bf5-dd54a536f7c5"),
-                            StationServiceId = new Guid("3ca237c2-f23b-4361-8708-d5654fb247af")
-                        },
-                        new
-                        {
-                            CarburantId = new Guid("e1db6bfb-4af1-4d33-b06a-072be46dd74b"),
-                            StationServiceId = new Guid("3ca237c2-f23b-4361-8708-d5654fb247af")
-                        },
-                        new
-                        {
-                            CarburantId = new Guid("99c87086-7167-4b8d-b799-32d59dfaaac3"),
-                            StationServiceId = new Guid("3ca237c2-f23b-4361-8708-d5654fb247af")
-                        },
-                        new
-                        {
-                            CarburantId = new Guid("8e4431db-7fb1-4586-b61b-96d08b41ee12"),
-                            StationServiceId = new Guid("3ca237c2-f23b-4361-8708-d5654fb247af")
-                        });
                 });
 
             modelBuilder.Entity("Entities.Models.User", b =>
