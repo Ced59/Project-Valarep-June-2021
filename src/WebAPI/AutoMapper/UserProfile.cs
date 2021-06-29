@@ -17,6 +17,8 @@ namespace WebAPI.AutoMapper
 
             CreateMap<UserConnexionDto, AuthenticateRequest>()
                 .ForMember(dest => dest.Username, opt => opt.MapFrom(e=>e.Login));
+
+            CreateMap<AuthenticateResponse, UserAuthenticateDto>();
         }
     }
 }

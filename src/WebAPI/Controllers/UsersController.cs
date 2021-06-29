@@ -45,7 +45,9 @@ namespace WebApi.Controllers
                 return BadRequest(new { message = "Username or password is incorrect" });
             }
 
-            return Ok(response);
+            var dtoResponse = _mapper.Map<UserAuthenticateDto>(response);
+
+            return Ok(dtoResponse);
         }
 
     }
