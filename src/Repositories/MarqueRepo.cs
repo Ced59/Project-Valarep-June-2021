@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Repositories
 {
-    class MarqueRepo : RepositoryBase<Marque>, IMarqueRepo
+    public class MarqueRepo : RepositoryBase<Marque>, IMarqueRepo
     {
         public MarqueRepo(RepoContext context) : base(context)
         {
