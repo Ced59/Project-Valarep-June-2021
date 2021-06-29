@@ -16,7 +16,7 @@ namespace Entities.Repo
 
         public DbSet<Carburant> Carburants { get; set; }
 
-        public DbSet<Marque> MarqueStations { get; set; }
+        public DbSet<Marque> Marque { get; set; }
 
         public DbSet<Releve> Releves { get; set; }
 
@@ -24,12 +24,21 @@ namespace Entities.Repo
 
         public DbSet<User> Users { get; set; }
 
+        public DbSet<StationServiceCarburant> StationServiceCarburants { get; set; }
+
+        public DbSet<UserFavouritesStationsServices> UserFavouritesStationsServices { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
             builder.Entity<Releve>()
                 .Property(p => p.Prix)
                 .HasColumnType("decimal(18,5)");
+
+            builder.Entity<StationServiceCarburant>().HasKey(s => new { s.CarburantId, s.StationServiceId });
+
+            builder.Entity<UserFavouritesStationsServices>().HasKey(s => new { s.UserId, s.FavouriteStationsServiceId });
         }
     }
 }

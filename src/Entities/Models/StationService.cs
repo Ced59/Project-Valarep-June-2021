@@ -26,5 +26,9 @@ namespace Entities.Models
         public Guid MarqueId { get; set; }
 
         public Marque Marque { get; set; }
+
+        public ICollection<Releve> Releves { get; set; }
+
+        public ICollection<StationServiceCarburant> StationServiceCarburants { get; set; }
     }
 }
