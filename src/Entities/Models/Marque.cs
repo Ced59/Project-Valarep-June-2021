@@ -8,12 +8,14 @@ using System.Threading.Tasks;
 
 namespace Entities.Models
 {
-    public class MarqueStation
+    public class Marque
     {
         [Column("Id_MA")]
         public Guid Id { get; set; }
 
         [Required(ErrorMessage = "Le nom de la marque est requis")]
         public string Libelle { get; set; }
+
+        public ICollection<StationService> StationServices { get; set; }
     }
 }
