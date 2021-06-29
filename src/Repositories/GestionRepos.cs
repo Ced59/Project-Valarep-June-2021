@@ -70,7 +70,7 @@ namespace Repositories
             }
         }
 
-        public IUserRepo UserRepo
+        public IUserRepo User
         {
             get
             {
