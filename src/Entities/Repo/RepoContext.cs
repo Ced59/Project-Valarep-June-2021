@@ -42,6 +42,10 @@ namespace Entities.Repo
             builder.Entity<UserFavouritesStationsServices>().HasKey(s => new { s.UserId, s.FavouriteStationsServiceId });
 
             builder.ApplyConfiguration(new ConfigUser());
+
+            builder.ApplyConfiguration(new ConfigCarburants());
+
+            builder.ApplyConfiguration(new ConfigMarque());
         }
     }
 }
