@@ -4,14 +4,16 @@ using Entities.Repo;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace WebAPI.Migrations
 {
     [DbContext(typeof(RepoContext))]
-    partial class RepoContextModelSnapshot : ModelSnapshot
+    [Migration("20210629134212_DownPrecisionDecimal")]
+    partial class DownPrecisionDecimal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -276,7 +278,7 @@ namespace WebAPI.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("Prix")
-                        .HasColumnType("decimal(4,3)");
+                        .HasColumnType("decimal(18,3)");
 
                     b.Property<Guid>("StationServiceId")
                         .HasColumnType("uniqueidentifier");

@@ -35,7 +35,7 @@ namespace Entities.Repo
 
             builder.Entity<Releve>()
                 .Property(p => p.Prix)
-                .HasColumnType("decimal(18,5)");
+                .HasColumnType("decimal(4,3)");
 
             builder.Entity<StationServiceCarburant>().HasKey(s => new { s.CarburantId, s.StationServiceId });
 
@@ -50,6 +50,8 @@ namespace Entities.Repo
             builder.ApplyConfiguration(new ConfigStationServices());
 
             builder.ApplyConfiguration(new ConfigStationServiceCarburants());
+
+            builder.ApplyConfiguration(new ConfigReleves());
         }
     }
 }

@@ -4,14 +4,16 @@ using Entities.Repo;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace WebAPI.Migrations
 {
     [DbContext(typeof(RepoContext))]
-    partial class RepoContextModelSnapshot : ModelSnapshot
+    [Migration("20210629133946_JeuDonneesAddRelevesToOneStation")]
+    partial class JeuDonneesAddRelevesToOneStation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -276,7 +278,7 @@ namespace WebAPI.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("Prix")
-                        .HasColumnType("decimal(4,3)");
+                        .HasColumnType("decimal(18,5)");
 
                     b.Property<Guid>("StationServiceId")
                         .HasColumnType("uniqueidentifier");
@@ -293,35 +295,6 @@ namespace WebAPI.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Releves");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("1da26d2c-e143-413a-b279-6b8895fb2326"),
-                            CarburantId = new Guid("8caad7e2-e40a-4328-95ce-74dbb8ba10b2"),
-                            Date = new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Prix = 1.451m,
-                            StationServiceId = new Guid("89223c2d-d43e-4c90-a33d-793e8e328cbc"),
-                            UserId = new Guid("7e1d2a85-c5ff-4b31-88cc-d4fd7e7a1338")
-                        },
-                        new
-                        {
-                            Id = new Guid("71ee6506-f614-484c-b2d9-62c375f5c500"),
-                            CarburantId = new Guid("3d700748-8267-43e9-9bf5-dd54a536f7c5"),
-                            Date = new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Prix = 1.751m,
-                            StationServiceId = new Guid("89223c2d-d43e-4c90-a33d-793e8e328cbc"),
-                            UserId = new Guid("7e1d2a85-c5ff-4b31-88cc-d4fd7e7a1338")
-                        },
-                        new
-                        {
-                            Id = new Guid("445e3c55-706d-4765-86f4-ab89cfdbec28"),
-                            CarburantId = new Guid("99c87086-7167-4b8d-b799-32d59dfaaac3"),
-                            Date = new DateTime(2021, 6, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Prix = 1.251m,
-                            StationServiceId = new Guid("89223c2d-d43e-4c90-a33d-793e8e328cbc"),
-                            UserId = new Guid("7e1d2a85-c5ff-4b31-88cc-d4fd7e7a1338")
-                        });
                 });
 
             modelBuilder.Entity("Entities.Models.StationService", b =>
