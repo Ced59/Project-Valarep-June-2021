@@ -1,5 +1,6 @@
 ﻿using Entities.Models;
 using Entities.Models.AuthModels;
+using InterfacesContrats.RepositoryInterfaces;
 using InterfacesContrats.UserInterfaces;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -16,40 +17,32 @@ namespace WebAPI.Extensions
 {
     public class UserService : IUserService
     {
-        // users hardcoded for simplicity, store in a db with hashed passwords in production applications
-        private List<User> _users = new List<User>
-        {
-            new User { Id = new Guid("6f55c727-8039-4ce5-9099-731148d8e29f"), Login = "Test", Pseudo = "Test", Password = "test" }
-        };
 
         private readonly AppSettings _appSettings;
+        private User _user;
 
         public UserService(IOptions<AppSettings> appSettings)
         {
             _appSettings = appSettings.Value;
         }
 
-        public AuthenticateResponse Authenticate(AuthenticateRequest model)
+        public AuthenticateResponse Authenticate(AuthenticateRequest model, IUserRepo userRepo)
         {
-            var user = _users.SingleOrDefault(x => x.Pseudo == model.Username && x.Password == model.Password);
+            var _user = userRepo.GetUser(false, model.Username, model.Password);
 
             // return null if user not found
-            if (user == null) return null;
+            if (_user == null) return null;
 
             // authentication successful so generate jwt token
-            var token = GenerateJwtToken(user);
+            var token = GenerateJwtToken(_user);
 
-            return new AuthenticateResponse(user, token);
+            return new AuthenticateResponse(_user, token);
         }
 
-        public IEnumerable<User> GetAll()
-        {
-            return _users;
-        }
 
         public User GetById(Guid id)
         {
-            return _users.FirstOrDefault(x => x.Id == id);
+            return _user;
         }
 
         // helper methods

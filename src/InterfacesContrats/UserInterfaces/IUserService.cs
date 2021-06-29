@@ -1,5 +1,6 @@
 ﻿using Entities.Models;
 using Entities.Models.AuthModels;
+using InterfacesContrats.RepositoryInterfaces;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -13,8 +14,7 @@ namespace InterfacesContrats.UserInterfaces
 {
     public interface IUserService
     {
-        AuthenticateResponse Authenticate(AuthenticateRequest model);
-        IEnumerable<User> GetAll();
+        AuthenticateResponse Authenticate(AuthenticateRequest model, IUserRepo userRepo);
         User GetById(Guid id);
     }
 }

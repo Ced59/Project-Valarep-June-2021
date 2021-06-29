@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Repositories
 {
-    class UserRepo : RepositoryBase<User>, IUserRepo
+    public class UserRepo : RepositoryBase<User>, IUserRepo
     {
         public UserRepo(RepoContext context): base(context)
         {

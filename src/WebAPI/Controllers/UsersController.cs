@@ -1,4 +1,5 @@
 ﻿using Entities.Models.AuthModels;
+using InterfacesContrats.RepositoryInterfaces;
 using InterfacesContrats.UserInterfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,16 +12,18 @@ namespace WebApi.Controllers
     public class UsersController : ControllerBase
     {
         private IUserService _userService;
+        private IUserRepo _userRepo;
 
-        public UsersController(IUserService userService)
+        public UsersController(IUserService userService, IUserRepo userRepo)
         {
             _userService = userService;
+            _userRepo = userRepo;
         }
 
         [HttpPost("authenticate")]
         public IActionResult Authenticate(AuthenticateRequest model)
         {
-            var response = _userService.Authenticate(model);
+            var response = _userService.Authenticate(model, _userRepo);
 
             if (response == null)
                 return BadRequest(new { message = "Username or password is incorrect" });
@@ -28,12 +31,5 @@ namespace WebApi.Controllers
             return Ok(response);
         }
 
-        [Authorize]
-        [HttpGet]
-        public IActionResult GetAll()
-        {
-            var users = _userService.GetAll();
-            return Ok(users);
-        }
     }
 }

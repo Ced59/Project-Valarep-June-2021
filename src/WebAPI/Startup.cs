@@ -21,6 +21,8 @@ using WebAPI.Helpers;
 using InterfacesContrats.UserInterfaces;
 using WebApi.Helpers;
 using Entities.Repo;
+using InterfacesContrats.RepositoryInterfaces;
+using Repositories;
 
 namespace WebAPI
 {
@@ -44,6 +46,8 @@ namespace WebAPI
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
             services.AddScoped<IUserService, UserService>();
+
+            services.AddScoped<IUserRepo, UserRepo>();
 
             services.ConfigureContextSql(Configuration);
 
