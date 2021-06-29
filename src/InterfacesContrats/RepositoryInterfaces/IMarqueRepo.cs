@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace InterfacesContrats.RepositoryInterfaces
 {
     public interface IMarqueRepo
     {
-        
+        Marque GetMarque(bool tracked, Guid id);
     }
 }
