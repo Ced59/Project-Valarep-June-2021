@@ -2,7 +2,7 @@
 
 namespace Dto
 {
-    public class MarqueStationDto
+    public class MarqueDto
     {
         public Guid Id { get; set; }
 
