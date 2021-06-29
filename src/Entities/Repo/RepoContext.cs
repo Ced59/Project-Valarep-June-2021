@@ -1,4 +1,5 @@
-﻿using Entities.Models;
+﻿using Entities.Configs;
+using Entities.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -39,6 +40,8 @@ namespace Entities.Repo
             builder.Entity<StationServiceCarburant>().HasKey(s => new { s.CarburantId, s.StationServiceId });
 
             builder.Entity<UserFavouritesStationsServices>().HasKey(s => new { s.UserId, s.FavouriteStationsServiceId });
+
+            builder.ApplyConfiguration(new ConfigUser());
         }
     }
 }

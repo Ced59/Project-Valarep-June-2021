@@ -4,14 +4,16 @@ using Entities.Repo;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace WebAPI.Migrations
 {
     [DbContext(typeof(RepoContext))]
-    partial class RepoContextModelSnapshot : ModelSnapshot
+    [Migration("20210629095135_JeuDonneesUsers")]
+    partial class JeuDonneesUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -186,7 +188,7 @@ namespace WebAPI.Migrations
                         },
                         new
                         {
-                            Id = new Guid("65fe75f0-8991-472b-9533-65cd78596f2f"),
+                            Id = new Guid("72daf56f-7aac-4a4e-9d01-0bf80cecf736"),
                             Login = "ali@test.com",
                             Password = "test",
                             Pseudo = "Ali"
