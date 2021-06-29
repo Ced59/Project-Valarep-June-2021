@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Repositories
 {
-    class CarburantRepo : RepositoryBase<Carburant>, ICarburantRepo
+    public class CarburantRepo : RepositoryBase<Carburant>, ICarburantRepo
     {
         public CarburantRepo(RepoContext context) : base(context)
         {

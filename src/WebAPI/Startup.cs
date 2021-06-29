@@ -21,6 +21,7 @@ using WebAPI.Helpers;
 using InterfacesContrats.UserInterfaces;
 using WebApi.Helpers;
 using Entities.Repo;
+using WebAPI.AutoMapper;
 
 namespace WebAPI
 {
@@ -49,12 +50,18 @@ namespace WebAPI
 
             services.ConfigureGestionRepos();
 
-            //TODO : Ajouter la config mapper ici
+            var mapperConfig = new MapperConfiguration(config =>
+            {
+                config.AddProfile<CarburantProfile>();
+                config.AddProfile<MarqueProfile>();
+                config.AddProfile<ReleveProfile>();
+                config.AddProfile<StationServiceProfile>();
+                config.AddProfile<UserProfile>();
+            });
 
             services.AddAutoMapper(typeof(Startup));
 
-            //TODO Décommenter quand la config mapper OK
-            // mapperConfig.AssertConfigurationIsValid();
+            mapperConfig.AssertConfigurationIsValid();
 
             services.AddSwaggerGen();
 
