@@ -15,5 +15,15 @@ namespace Repositories
         {
 
         }
+
+        public void CreerUser(User user)
+        {
+            Create(user);
+        }
+
+        public User GetUser(bool tracked, string login, string password)
+        {
+            return FindByCondition(e => e.Login == login && e.Password == password, tracked).Single();
+        }
     }
 }

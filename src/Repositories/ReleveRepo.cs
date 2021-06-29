@@ -15,5 +15,18 @@ namespace Repositories
         {
 
         }
+
+        public void CreerReleve(Releve releve, Guid StationId, Guid CarburantId)
+        {
+            //releve.StationId = StationId;
+            //releve.CarburantId = CarburantId;
+            Create(releve);
+        }
+
+        public Releve GetReleve(bool tracked, Guid StationId, Guid CarburantId)
+        {
+            return null;
+            //return FindByCondition(e => e.StationId == StationId && e.CarburantId == CarburantId).OrderBy(e => e.Date);
+        }
     }
 }

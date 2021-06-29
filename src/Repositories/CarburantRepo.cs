@@ -15,5 +15,15 @@ namespace Repositories
         {
 
         }
+
+        public Carburant GetCarburant(bool tracked, Guid id)
+        {
+            return FindByCondition(e=> e.Id == id, tracked).Single();
+        }
+
+        public IEnumerable<Carburant> GetCarburants(bool tracked)
+        {
+            return FindAll(tracked).ToList();
+        }
     }
 }
