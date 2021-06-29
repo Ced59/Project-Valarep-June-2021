@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace InterfacesContrats.RepositoryInterfaces
 {
-    public interface IMarqueStationRepo
+    public interface IMarqueRepo
     {
+        
     }
 }

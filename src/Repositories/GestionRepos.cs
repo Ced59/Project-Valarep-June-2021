@@ -12,7 +12,7 @@ namespace Repositories
     {
         private RepoContext _context;
         private ICarburantRepo _carburantRepo;
-        private IMarqueStationRepo _marqueStationRepo;
+        private IMarqueRepo _marqueStationRepo;
         private IReleveRepo _releveRepo;
         private IStationServiceRepo _stationServiceRepo;
         private IUserRepo _userRepo;
@@ -34,13 +34,13 @@ namespace Repositories
             }
         }
 
-        public IMarqueStationRepo MarqueStation
+        public IMarqueRepo MarqueStation
         {
             get
             {
                 if (_marqueStationRepo == null)
                 {
-                    _marqueStationRepo = new MarqueStationRepo(_context);
+                    _marqueStationRepo = new MarqueRepo(_context);
                 }
                 return _marqueStationRepo;
             }
