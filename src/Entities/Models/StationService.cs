@@ -21,5 +21,10 @@ namespace Entities.Models
 
         [Required(ErrorMessage = "La longitude est requise")]
         public string Longitude { get; set; }
+
+        [ForeignKey(nameof(Marque))]
+        public Guid MarqueId { get; set; }
+
+        public Marque Marque { get; set; }
     }
 }
