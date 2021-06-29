@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Repositories
 {
-    class ReleveRepo : RepositoryBase<Releve>, IReleveRepo
+    public class ReleveRepo : RepositoryBase<Releve>, IReleveRepo
     {
         public ReleveRepo(RepoContext context) : base(context)
         {

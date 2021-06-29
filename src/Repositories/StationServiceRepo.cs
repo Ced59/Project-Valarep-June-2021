@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Repositories
 {
-    class StationServiceRepo : RepositoryBase<StationService>, IStationServiceRepo
+    public class StationServiceRepo : RepositoryBase<StationService>, IStationServiceRepo
     {
         public StationServiceRepo(RepoContext context) : base(context)
         {
