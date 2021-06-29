@@ -49,6 +49,10 @@ namespace WebAPI
             services.AddScoped<IUserService, UserService>();
 
             services.AddScoped<IUserRepo, UserRepo>();
+            services.AddScoped<ICarburantRepo, CarburantRepo>();
+            services.AddScoped<IMarqueRepo, MarqueRepo>();
+            services.AddScoped<IReleveRepo, ReleveRepo>();
+            services.AddScoped<IStationServiceRepo, StationServiceRepo>();
 
             services.ConfigureContextSql(Configuration);
 
