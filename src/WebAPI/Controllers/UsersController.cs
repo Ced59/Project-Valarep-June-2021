@@ -38,16 +38,21 @@ namespace WebApi.Controllers
 
             var user = _mapper.Map<AuthenticateRequest>(userConnexionDto);
 
-            var response = _userService.Authenticate(user, _userRepo);
+            try
+            {
+                var response = _userService.Authenticate(user, _userRepo);
 
-            if (response == null)
+                var dtoResponse = _mapper.Map<UserAuthenticateDto>(response);
+
+                return Ok(dtoResponse);
+            }
+            catch
             {
                 return BadRequest(new { message = "Username or password is incorrect" });
             }
+            
 
-            var dtoResponse = _mapper.Map<UserAuthenticateDto>(response);
-
-            return Ok(dtoResponse);
+            
         }
 
     }
