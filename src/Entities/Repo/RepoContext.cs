@@ -16,7 +16,7 @@ namespace Entities.Repo
 
         public DbSet<Carburant> Carburants { get; set; }
 
-        public DbSet<MarqueStation> MarqueStations { get; set; }
+        public DbSet<Marque> MarqueStations { get; set; }
 
         public DbSet<Releve> Releves { get; set; }
 
