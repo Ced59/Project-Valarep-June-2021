@@ -18,5 +18,7 @@ namespace Entities.Models
 
         [Required(ErrorMessage = "Le Code Européen du Carburant est requis")]
         public string CodeEu { get; set; }
+
+        public ICollection<StationServiceCarburant> StationServiceCarburants { get; set; }
     }
 }

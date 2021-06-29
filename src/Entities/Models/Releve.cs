@@ -18,5 +18,22 @@ namespace Entities.Models
 
         [Required(ErrorMessage = "Le prix de la pompe est requise")]
         public decimal Prix { get; set; }
+
+        [ForeignKey(nameof(Carburant))]
+        public Guid CarburantId { get; set; }
+
+        public Carburant Carburant { get; set; }
+
+        [ForeignKey(nameof(StationService))]
+        public Guid StationServiceId { get; set; }
+
+        public StationService StationService { get; set; }
+
+        [ForeignKey(nameof(User))]
+        public Guid UserId { get; set; }
+
+        public User User { get; set; }
+
+
     }
 }

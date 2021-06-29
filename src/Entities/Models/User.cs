@@ -12,7 +12,8 @@ namespace Entities.Models
     public class User
     {
         [Column("Id_US")]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
+
         [Required(ErrorMessage = "L'email est requis")]
         public string Login { get; set; }
 
@@ -22,5 +23,10 @@ namespace Entities.Models
         [Required(ErrorMessage = "Le mot de passe est requis")]
         [JsonIgnore]
         public string Password { get; set; }
+
+        public ICollection<Releve> Releves { get; set; }
+
+        public ICollection<UserFavouritesStationsServices> StationServicesFavourites { get; set; }
+
     }
 }

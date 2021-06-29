@@ -19,7 +19,7 @@ namespace WebAPI.Extensions
         // users hardcoded for simplicity, store in a db with hashed passwords in production applications
         private List<User> _users = new List<User>
         {
-            new User { Id = 1, Login = "Test", Pseudo = "Test", Password = "test" }
+            new User { Id = new Guid("6f55c727-8039-4ce5-9099-731148d8e29f"), Login = "Test", Pseudo = "Test", Password = "test" }
         };
 
         private readonly AppSettings _appSettings;
@@ -47,7 +47,7 @@ namespace WebAPI.Extensions
             return _users;
         }
 
-        public User GetById(int id)
+        public User GetById(Guid id)
         {
             return _users.FirstOrDefault(x => x.Id == id);
         }
