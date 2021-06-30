@@ -42,7 +42,7 @@ namespace WebAPI
         {
             services.ConfigureServiceLogging();
 
-            services.AddCors();
+            services.ConfigureCors();
 
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
@@ -98,10 +98,7 @@ namespace WebAPI
 
             app.UseAuthorization();
 
-            app.UseCors(x => x
-                .AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader());
+            app.UseCors("DevPolicy");
 
             // custom jwt auth middleware
             app.UseMiddleware<JwtMiddleware>();

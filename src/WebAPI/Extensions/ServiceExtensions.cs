@@ -26,6 +26,16 @@ namespace WebAPI.Extensions
         //TODO : Décommenter quand
         public static void ConfigureGestionRepos(this IServiceCollection services) => services.AddScoped<IGestionRepos, GestionRepos>();
 
+        public static void ConfigureCors(this IServiceCollection services)
+        {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("DevPolicy", builder =>
+                  builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader());
+            });
+        }
 
     }
 }
