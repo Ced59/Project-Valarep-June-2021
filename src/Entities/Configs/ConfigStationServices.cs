@@ -16,7 +16,7 @@ namespace Entities.Configs
             builder.HasData(
                 new StationService
                 {
-                     Id = new Guid("89223c2d-d43e-4c90-a33d-793e8e328cbc"),
+                    IdSt = new Guid("89223c2d-d43e-4c90-a33d-793e8e328cbc"),
                      Adresse = "960 Avenue Jean Jaurès, 59174 La Sentinelle",
                      Latitude = "50.3453386677043",
                      Longitude = "3.479521676283144",
@@ -24,7 +24,7 @@ namespace Entities.Configs
                 },
                 new StationService
                 {
-                    Id = new Guid("ed772bc2-69fd-432a-9a0c-f7f8317763c0"),
+                    IdSt = new Guid("ed772bc2-69fd-432a-9a0c-f7f8317763c0"),
                     Adresse = "59125 Trith-Saint-Léger",
                     Latitude = "50.33483671401915",
                     Longitude = "3.4815290258130953",
@@ -32,7 +32,7 @@ namespace Entities.Configs
                 },
                 new StationService
                 {
-                    Id = new Guid("3ca237c2-f23b-4361-8708-d5654fb247af"),
+                    IdSt = new Guid("3ca237c2-f23b-4361-8708-d5654fb247af"),
                     Adresse = "27 Boulevard Saly, 59300 Valenciennes",
                     Latitude = "50.35364007720023",
                     Longitude = "3.5202011928830075",
