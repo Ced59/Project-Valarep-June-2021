@@ -8,7 +8,7 @@ namespace Dto
 {
     public class StationServiceDto
     {
-        public Guid Id { get; set; }
+        public Guid IdSt { get; set; }
 
         public string Adresse { get; set; }
 

@@ -3,6 +3,7 @@ using Dto;
 using InterfacesContrats.Logger;
 using InterfacesContrats.RepositoryInterfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace WebAPI.Controllers
 {
@@ -23,11 +24,11 @@ namespace WebAPI.Controllers
         [HttpGet]
         public IActionResult GetNearStationsServices()
         {
-                var stations = _repo.StationService.GetStationServices(false);
+            var stations = _repo.StationService.GetStationServices(false);
 
-            //var stationdto = _mapper.Map<StationServiceDto>(stations);
+            var stationsdto = stations.Select(elt => _mapper.Map<StationServiceDto>(elt)).ToList();
 
-                return Ok(stations);
+            return Ok(stationsdto);
             
         }
     }
