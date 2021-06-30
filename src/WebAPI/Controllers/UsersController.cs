@@ -6,11 +6,11 @@ using InterfacesContrats.Logger;
 using InterfacesContrats.RepositoryInterfaces;
 using InterfacesContrats.UserInterfaces;
 using Microsoft.AspNetCore.Mvc;
-
-
+using System.Web.Http.Cors;
 
 namespace WebApi.Controllers
 {
+    [EnableCors("*", "*", "*")]
     [ApiController]
     [Route("[controller]")]
     public class UsersController : ControllerBase
