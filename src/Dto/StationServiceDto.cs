@@ -15,5 +15,9 @@ namespace Dto
         public string Latitude { get; set; }
 
         public string Longitude { get; set; }
+
+        public MarqueDto Marque { get; set; }
+
+        public ICollection<CarburantDto> Carburants { get; set; }
     }
 }
