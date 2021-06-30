@@ -8,7 +8,7 @@ namespace Dto
 {
     public class ReleveDto
     {
-        public Guid Id { get; set; }
+        public Guid IdRe { get; set; }
 
         public DateTime Date { get; set; }
 

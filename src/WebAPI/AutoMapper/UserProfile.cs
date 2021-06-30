@@ -18,12 +18,13 @@ namespace WebAPI.AutoMapper
             CreateMap<UserConnexionDto, AuthenticateRequest>()
                 .ForMember(dest => dest.Username, opt => opt.MapFrom(e=>e.Login));
 
-            CreateMap<AuthenticateResponse, UserAuthenticateDto>();
+            CreateMap<AuthenticateResponse, UserAuthenticateDto>()
+                .ForMember(dest => dest.IdUs, opt=> opt.MapFrom(e=> e.Id));
 
             CreateMap<UserCreationDto, User>()
-                .ForMember(dest => dest.Id, opt => opt.Ignore())
+                .ForMember(dest => dest.IdUs, opt => opt.Ignore())
                 .ForMember(dest => dest.Releves, opt => opt.Ignore())
-                .ForMember(dest => dest.StationServicesFavourites, opt => opt.Ignore());
+                .ForMember(dest => dest.UserFavouritesStationsServices, opt => opt.Ignore());
         }
     }
 }

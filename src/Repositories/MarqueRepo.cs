@@ -18,7 +18,7 @@ namespace Repositories
 
         public Marque GetMarque(bool tracked, Guid id)
         {
-            return FindByCondition(e => e.Id == id, tracked).Single();
+            return FindByCondition(e => e.IdMa == id, tracked).Single();
         }
     }
 }

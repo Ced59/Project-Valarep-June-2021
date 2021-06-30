@@ -1,24 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+#nullable disable
 
 namespace Entities.Models
 {
-    public class Carburant
+    public partial class Carburant
     {
-        [Column("Id_CA")]
-        public Guid Id { get; set; }
+        public Carburant()
+        {
+            Releves = new HashSet<Releve>();
+            StationServiceCarburants = new HashSet<StationServiceCarburant>();
+        }
 
-        [Required(ErrorMessage = "Le nom du carburant est requis")]
+        public Guid IdCa { get; set; }
         public string Libelle { get; set; }
-
-        [Required(ErrorMessage = "Le Code Européen du Carburant est requis")]
         public string CodeEu { get; set; }
 
-        public ICollection<StationServiceCarburant> StationServiceCarburants { get; set; }
+        public virtual ICollection<Releve> Releves { get; set; }
+        public virtual ICollection<StationServiceCarburant> StationServiceCarburants { get; set; }
     }
 }

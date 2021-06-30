@@ -16,35 +16,35 @@ namespace Entities.Configs
             builder.HasData(
                 new User
                 {
-                    Id = new Guid("7e1d2a85-c5ff-4b31-88cc-d4fd7e7a1338"),
+                    IdUs = new Guid("7e1d2a85-c5ff-4b31-88cc-d4fd7e7a1338"),
                     Pseudo = "Ced",
                     Login = "ced@test.com",
                     Password = "test"
                 },
                                 new User
                                 {
-                                    Id = new Guid("26a3a18c-56f1-4723-8052-4de25e8637b3"),
+                                    IdUs = new Guid("26a3a18c-56f1-4723-8052-4de25e8637b3"),
                                     Pseudo = "Vincent",
                                     Login = "vince@test.com",
                                     Password = "test"
                                 },
                                                 new User
                                                 {
-                                                    Id = new Guid("b68d837a-f541-428e-892a-4b854a78d755"),
+                                                    IdUs = new Guid("b68d837a-f541-428e-892a-4b854a78d755"),
                                                     Pseudo = "Charlotte",
                                                     Login = "charlotte@test.com",
                                                     Password = "test"
                                                 },
                                                                 new User
                                                                 {
-                                                                    Id = new Guid("65fe75f0-8991-472b-9533-65cd78596f2e"),
+                                                                    IdUs = new Guid("65fe75f0-8991-472b-9533-65cd78596f2e"),
                                                                     Pseudo = "Théo",
                                                                     Login = "theo@test.com",
                                                                     Password = "test"
                                                                 },
                                                                                 new User
                                                                                 {
-                                                                                    Id = new Guid("65fe75f0-8991-472b-9533-65cd78596f2f"),
+                                                                                    IdUs = new Guid("65fe75f0-8991-472b-9533-65cd78596f2f"),
                                                                                     Pseudo = "Ali",
                                                                                     Login = "ali@test.com",
                                                                                     Password = "test"
