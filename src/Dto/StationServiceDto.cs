@@ -18,6 +18,6 @@ namespace Dto
 
         public MarqueDto Marque { get; set; }
 
-        public ICollection<CarburantDto> Carburants { get; set; }
+        public List<CarburantDto> Carburants { get; set; }
     }
 }

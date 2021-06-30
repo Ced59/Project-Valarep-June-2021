@@ -1,7 +1,9 @@
-﻿using Entities.Repo;
+﻿using Entities.Models;
+using Entities.Repo;
 using InterfacesContrats.RepositoryInterfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -29,6 +31,41 @@ namespace Repositories
         public IQueryable<T> FindAll(bool tracked)
         {
             return tracked ? Context.Set<T>() : Context.Set<T>().AsNoTracking();
+        }
+
+        public List<StationService> FindAllStationsServices()
+        {
+            List<StationService> stationServices = new List<StationService>();
+
+            var query = from StationServices in Context.StationServices
+                        join Marques in Context.Marques on StationServices.MarqueId equals Marques.IdMa
+                        join CarburantsStation in Context.StationServiceCarburants on StationServices.IdSt equals CarburantsStation.StationServiceId
+                        select new StationService
+                        {
+                            IdSt = StationServices.IdSt,
+                            Adresse = StationServices.Adresse,
+                            Latitude = StationServices.Latitude,
+                            Longitude = StationServices.Longitude,
+                            Marque = new Marque
+                            {
+                                IdMa = Marques.IdMa,
+                                Libelle = Marques.Libelle
+                            },
+                            Carburants = (from CarbuStation in Context.StationServiceCarburants
+                                          join Carbu in Context.Carburants on CarbuStation.CarburantId equals Carbu.IdCa
+                                          where CarbuStation.StationServiceId == StationServices.IdSt
+                                          select new Carburant
+                                          {
+                                              IdCa = Carbu.IdCa,
+                                              Libelle = Carbu.Libelle,
+                                              CodeEu = Carbu.CodeEu
+                                          }
+                                          ).ToList()
+                        };
+
+            var result = query.ToList();
+
+            return result.GroupBy(x => x.IdSt).Select(y=> y.First()).ToList();
         }
 
         public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expr, bool tracked)

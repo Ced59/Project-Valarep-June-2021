@@ -14,7 +14,7 @@ namespace WebAPI.AutoMapper
         {
             CreateMap<StationService, StationServiceDto>()
                 .ForMember(dest=> dest.Marque, opt=> opt.MapFrom(e=> e.Marque))
-                .ForMember(dest => dest.Carburants, opt => opt.Ignore());
+                .ForMember(dest => dest.Carburants, opt => opt.MapFrom(e=>e.Carburants));
 
         }
     }
