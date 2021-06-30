@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+#nullable disable
 
 namespace Entities.Models
 {
-    public class Marque
+    public partial class Marque
     {
-        [Column("Id_MA")]
-        public Guid Id { get; set; }
+        public Marque()
+        {
+            StationServices = new HashSet<StationService>();
+        }
 
-        [Required(ErrorMessage = "Le nom de la marque est requis")]
+        public Guid IdMa { get; set; }
         public string Libelle { get; set; }
 
-        public ICollection<StationService> StationServices { get; set; }
+        public virtual ICollection<StationService> StationServices { get; set; }
     }
 }

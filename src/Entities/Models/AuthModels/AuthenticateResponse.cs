@@ -16,7 +16,7 @@ namespace Entities.Models.AuthModels
 
         public AuthenticateResponse(User user, string token)
         {
-            Id = user.Id;
+            Id = user.IdUs;
             Login = user.Login;
             Pseudo = user.Pseudo;
             Token = token;

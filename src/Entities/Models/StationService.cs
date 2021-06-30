@@ -1,34 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+#nullable disable
 
 namespace Entities.Models
 {
-    public class StationService
+    public partial class StationService
     {
-        [Column("Id_ST")]
-        public Guid Id { get; set; }
+        public StationService()
+        {
+            Releves = new HashSet<Releve>();
+            StationServiceCarburants = new HashSet<StationServiceCarburant>();
+            UserFavouritesStationsServices = new HashSet<UserFavouritesStationsService>();
+        }
 
-        [Required(ErrorMessage = "L'adresse est requise pour la station service")]
+        public Guid IdSt { get; set; }
         public string Adresse { get; set; }
-
-        [Required(ErrorMessage = "La latitude est requise")]
         public string Latitude { get; set; }
-
-        [Required(ErrorMessage = "La longitude est requise")]
         public string Longitude { get; set; }
-
-        [ForeignKey(nameof(Marque))]
         public Guid MarqueId { get; set; }
 
-        public Marque Marque { get; set; }
-
-        public ICollection<Releve> Releves { get; set; }
-
-        public ICollection<StationServiceCarburant> StationServiceCarburants { get; set; }
+        public virtual Marque Marque { get; set; }
+        public virtual ICollection<Releve> Releves { get; set; }
+        public virtual ICollection<StationServiceCarburant> StationServiceCarburants { get; set; }
+        public virtual ICollection<UserFavouritesStationsService> UserFavouritesStationsServices { get; set; }
     }
 }
