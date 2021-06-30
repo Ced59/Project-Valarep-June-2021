@@ -12,9 +12,9 @@ namespace WebAPI.AutoMapper
     {
         public CarburantProfile()
         {
-            CreateMap<StationServiceCarburant, CarburantDto>()
-                .ForMember(dest => dest.Libelle, opt => opt.MapFrom(e => e.Carburant.Libelle))
-                .ForMember(dest => dest.CodeEu, opt => opt.MapFrom(e => e.Carburant.CodeEu));
+            CreateMap<Carburant, CarburantDto>()
+                .ForMember(dest => dest.Libelle, opt => opt.MapFrom(e => e.Libelle))
+                .ForMember(dest => dest.CodeEu, opt => opt.MapFrom(e => e.CodeEu));
         }
     }
 }

@@ -10,6 +10,7 @@ namespace Entities.Models
         public StationService()
         {
             Releves = new HashSet<Releve>();
+            Carburants = new List<Carburant>();
             StationServiceCarburants = new HashSet<StationServiceCarburant>();
             UserFavouritesStationsServices = new HashSet<UserFavouritesStationsService>();
         }
@@ -21,6 +22,8 @@ namespace Entities.Models
         public Guid MarqueId { get; set; }
 
         public virtual Marque Marque { get; set; }
+
+        public virtual List<Carburant> Carburants { get; set; }
         public virtual ICollection<Releve> Releves { get; set; }
         public virtual ICollection<StationServiceCarburant> StationServiceCarburants { get; set; }
         public virtual ICollection<UserFavouritesStationsService> UserFavouritesStationsServices { get; set; }

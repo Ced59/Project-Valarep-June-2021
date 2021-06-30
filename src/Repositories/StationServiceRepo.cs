@@ -23,7 +23,7 @@ namespace Repositories
 
         public IEnumerable<StationService> GetStationServices(bool tracked)
         {
-            return FindAll(tracked);
+            return FindAllStationsServices();
         }
     }
 }
