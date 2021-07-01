@@ -41,5 +41,44 @@ namespace WebAPI.Controllers
             
             
         }
+
+        [HttpGet]
+        [Route("{id}")]
+        public IActionResult GetThisStation(Guid id)
+        {
+            try
+            {
+                var station = _repo.StationService.GetStationService(false, id);
+
+                var stationdto = _mapper.Map<StationServiceDto>(station);
+
+                return Ok(stationdto);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogErreur("Echec de récupération des données : " + ex);
+                return StatusCode(500, "Erreur Serveur");
+            }
+        }
+
+        [HttpGet]
+        [Route("carburant/{id}")]
+        public IActionResult GetStationByCarburant(Guid id)
+        {
+            try
+            {
+                var station = _repo.StationService.GetStationServicesByCarburant(id);
+
+                var stationdto = station.Select(elt => _mapper.Map<StationServiceDto>(elt)).ToList();
+
+                return Ok(stationdto);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogErreur("Echec de récupération des données : " + ex);
+                return StatusCode(500, "Erreur Serveur");
+            }
+        }
+
     }
 }

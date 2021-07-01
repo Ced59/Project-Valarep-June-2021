@@ -12,5 +12,6 @@ namespace InterfacesContrats.RepositoryInterfaces
         IEnumerable<StationService> GetStationServices(bool tracked);
 
         StationService GetStationService(bool tracked, Guid id);
+        IEnumerable<StationService> GetStationServicesByCarburant(Guid id);
     }
 }
