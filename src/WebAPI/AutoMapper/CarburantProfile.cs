@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Dto;
+using Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +12,9 @@ namespace WebAPI.AutoMapper
     {
         public CarburantProfile()
         {
-
+            CreateMap<Carburant, CarburantDto>()
+                .ForMember(dest => dest.Libelle, opt => opt.MapFrom(e => e.Libelle))
+                .ForMember(dest => dest.CodeEu, opt => opt.MapFrom(e => e.CodeEu));
         }
     }
 }

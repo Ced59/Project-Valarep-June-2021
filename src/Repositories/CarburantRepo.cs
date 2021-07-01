@@ -18,7 +18,7 @@ namespace Repositories
 
         public Carburant GetCarburant(bool tracked, Guid id)
         {
-            return FindByCondition(e=> e.Id == id, tracked).Single();
+            return FindByCondition(e=> e.IdCa == id, tracked).Single();
         }
 
         public IEnumerable<Carburant> GetCarburants(bool tracked)

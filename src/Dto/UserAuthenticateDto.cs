@@ -8,7 +8,7 @@ namespace Dto
 {
     public class UserAuthenticateDto
     {
-        public Guid Id { get; set; }
+        public Guid IdUs { get; set; }
         public string Login { get; set; }
         public string Pseudo { get; set; }
         public string Token { get; set; }

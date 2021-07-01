@@ -18,12 +18,12 @@ namespace Repositories
 
         public StationService GetStationService(bool tracked, Guid id)
         {
-            return FindByCondition(e => e.Id == id, tracked).Single();
+            return FindByCondition(e => e.IdSt == id, tracked).Single();
         }
 
         public IEnumerable<StationService> GetStationServices(bool tracked)
         {
-            return FindAll(tracked);
+            return FindAllStationsServices();
         }
     }
 }
