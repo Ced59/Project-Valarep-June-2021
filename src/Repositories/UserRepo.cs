@@ -18,6 +18,7 @@ namespace Repositories
 
         public void CreerUser(User user)
         {
+            user.IdUs = Guid.NewGuid();
             Create(user);
         }
 

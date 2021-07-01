@@ -5,9 +5,11 @@ using InterfacesContrats.RepositoryInterfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
+using System.Web.Http.Cors;
 
 namespace WebAPI.Controllers
 {
+    [EnableCors("*", "*", "*")]
     [ApiController]
     [Route("stationservice")]
     public class StationServiceController : ControllerBase

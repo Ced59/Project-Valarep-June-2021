@@ -7,9 +7,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web.Http.Cors;
 
 namespace WebAPI.Controllers
 {
+    [EnableCors("*", "*", "*")]
     [ApiController]
     [Route("carburant")]
     public class CarburantController : ControllerBase
