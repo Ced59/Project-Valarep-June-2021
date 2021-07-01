@@ -12,5 +12,7 @@ namespace InterfacesContrats.RepositoryInterfaces
         void CreerUser(User user);
 
         User GetUser(bool tracked, string login, string password);
+
+        ICollection<User> GetAllUsers();
     }
 }

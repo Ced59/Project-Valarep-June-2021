@@ -12,7 +12,7 @@ namespace WebApi.Controllers
 {
     [EnableCors("*", "*", "*")]
     [ApiController]
-    [Route("[controller]")]
+    [Route("users")]
     public class UsersController : ControllerBase
     {
         private IUserService _userService;
@@ -31,7 +31,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPost("authenticate")]
-        public IActionResult Authenticate([FromBody] UserConnexionDto userConnexionDto)
+        public IActionResult Authenticate(UserConnexionDto userConnexionDto)
         {
             if(userConnexionDto == null)
             {
@@ -83,6 +83,12 @@ namespace WebApi.Controllers
             
 
             
+        }
+
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            return Ok(_userRepo.GetAllUsers());
         }
 
     }

@@ -21,6 +21,11 @@ namespace Repositories
             Create(user);
         }
 
+        public ICollection<User> GetAllUsers()
+        {
+            return FindAll(false).ToList();
+        }
+
         public User GetUser(bool tracked, string login, string password)
         {
             return FindByCondition(e => e.Login == login && e.Password == password, tracked).Single();
