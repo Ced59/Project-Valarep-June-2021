@@ -153,6 +153,13 @@ namespace Entities.Repo
             });
 
             OnModelCreatingPartial(modelBuilder);
+
+            modelBuilder.ApplyConfiguration(new ConfigCarburants());
+            modelBuilder.ApplyConfiguration(new ConfigMarque());
+            modelBuilder.ApplyConfiguration(new ConfigReleves());
+            modelBuilder.ApplyConfiguration(new ConfigStationServices());
+            modelBuilder.ApplyConfiguration(new ConfigStationServiceCarburants());
+            modelBuilder.ApplyConfiguration(new ConfigUser());
         }
 
 

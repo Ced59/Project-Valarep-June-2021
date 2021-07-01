@@ -48,6 +48,81 @@ namespace Repositories
             return query.ToList();
         }
 
+        public StationService FindStationServiceById(Guid id)
+        {
+            StationService stationService = new StationService();
+
+            var query = from StationServices in Context.StationServices
+                        join Marques in Context.Marques on StationServices.MarqueId equals Marques.IdMa
+                        join CarburantsStation in Context.StationServiceCarburants on StationServices.IdSt equals CarburantsStation.StationServiceId
+                        where StationServices.IdSt == id
+                        select new StationService
+                        {
+                            IdSt = StationServices.IdSt,
+                            Adresse = StationServices.Adresse,
+                            Latitude = StationServices.Latitude,
+                            Longitude = StationServices.Longitude,
+                            Marque = new Marque
+                            {
+                                IdMa = Marques.IdMa,
+                                Libelle = Marques.Libelle
+                            },
+                            Carburants = (from CarbuStation in Context.StationServiceCarburants
+                                          join Carbu in Context.Carburants on CarbuStation.CarburantId equals Carbu.IdCa
+                                          where CarbuStation.StationServiceId == StationServices.IdSt
+                                          select new Carburant
+                                          {
+                                              IdCa = Carbu.IdCa,
+                                              Libelle = Carbu.Libelle,
+                                              CodeEu = Carbu.CodeEu
+                                          }
+                                          ).ToList()
+                        };
+
+            stationService = query.FirstOrDefault();
+
+            return stationService;
+
+
+        }
+
+        public List<StationService> FindStationsServiceByCarburant(Guid id)
+        {
+            List<StationService> stationServices = new List<StationService>();
+
+            var query = from StationServices in Context.StationServices
+                        join Marques in Context.Marques on StationServices.MarqueId equals Marques.IdMa
+                        join CarburantsStation in Context.StationServiceCarburants on StationServices.IdSt equals CarburantsStation.StationServiceId
+                        join Carburants in Context.Carburants on CarburantsStation.CarburantId equals Carburants.IdCa
+                        where Carburants.IdCa == id
+                        select new StationService
+                        {
+                            IdSt = StationServices.IdSt,
+                            Adresse = StationServices.Adresse,
+                            Latitude = StationServices.Latitude,
+                            Longitude = StationServices.Longitude,
+                            Marque = new Marque
+                            {
+                                IdMa = Marques.IdMa,
+                                Libelle = Marques.Libelle
+                            },
+                            Carburants = (from CarbuStation in Context.StationServiceCarburants
+                                          join Carbu in Context.Carburants on CarbuStation.CarburantId equals Carbu.IdCa
+                                          where CarbuStation.StationServiceId == StationServices.IdSt
+                                          select new Carburant
+                                          {
+                                              IdCa = Carbu.IdCa,
+                                              Libelle = Carbu.Libelle,
+                                              CodeEu = Carbu.CodeEu
+                                          }
+                                          ).ToList()
+                        };
+
+            var result = query.ToList();
+
+            return result.GroupBy(x => x.IdSt).Select(y => y.First()).ToList();
+        }
+
         public List<StationService> FindAllStationsServices()
         {
             List<StationService> stationServices = new List<StationService>();
