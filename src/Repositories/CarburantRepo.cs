@@ -23,7 +23,7 @@ namespace Repositories
 
         public IEnumerable<Carburant> GetCarburants(bool tracked)
         {
-            return FindAll(tracked).ToList();
+            return FindCarburants();
         }
     }
 }

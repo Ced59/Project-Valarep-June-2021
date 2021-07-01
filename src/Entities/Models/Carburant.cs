@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Entities.Models
 {
-    public partial class Carburant
+    public class Carburant
     {
         public Carburant()
         {

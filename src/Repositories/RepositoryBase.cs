@@ -33,6 +33,21 @@ namespace Repositories
             return tracked ? Context.Set<T>() : Context.Set<T>().AsNoTracking();
         }
 
+        public List<Carburant> FindCarburants()
+        {
+            List<Carburant> carburants = new List<Carburant>();
+
+            var query = from Carburant in Context.Carburants
+                        select new Carburant
+                        {
+                            IdCa = Carburant.IdCa,
+                            Libelle = Carburant.Libelle,
+                            CodeEu = Carburant.CodeEu
+                        };
+
+            return query.ToList();
+        }
+
         public List<StationService> FindAllStationsServices()
         {
             List<StationService> stationServices = new List<StationService>();
