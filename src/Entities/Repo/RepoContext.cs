@@ -153,6 +153,7 @@ namespace Entities.Repo
             });
 
             OnModelCreatingPartial(modelBuilder);
+        }
 
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
