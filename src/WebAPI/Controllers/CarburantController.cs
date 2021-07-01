@@ -4,18 +4,20 @@ using InterfacesContrats.Logger;
 using InterfacesContrats.RepositoryInterfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
     [ApiController]
-    [Route("stationservice")]
-    public class StationServiceController : ControllerBase
+    [Route("carburant")]
+    public class CarburantController : ControllerBase
     {
         private IMapper _mapper;
         private ILoggable _logger;
         private IGestionRepos _repo;
-        public StationServiceController(IMapper mapper, ILoggable logger, IGestionRepos repo)
+        public CarburantController(IMapper mapper, ILoggable logger, IGestionRepos repo)
         {
             _mapper = mapper;
             _logger = logger;
@@ -23,22 +25,21 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetNearStationsServices()
+        public IActionResult GetCarburants()
         {
             try
             {
-                var stations = _repo.StationService.GetStationServices(false);
+                var carburant = _repo.Carburant.GetCarburants(false);
 
-                var stationsdto = stations.Select(elt => _mapper.Map<StationServiceDto>(elt)).ToList();
+                var carburantdto = carburant.Select(elt => _mapper.Map<CarburantDto>(elt)).ToList();
 
-                return Ok(stationsdto);
+                return Ok(carburantdto);
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                _logger.LogErreur("Echec de récupération des données : " + ex);
+                _logger.LogErreur("Aucun Carburant n'a été trouvé : " + ex);
                 return StatusCode(500, "Erreur Serveur");
             }
-            
             
         }
     }
