@@ -12,5 +12,7 @@ namespace Dto
         public string Libelle { get; set; }
 
         public string CodeEu { get; set; }
+
+        public ICollection<ReleveDto> Releves { get; set; }
     }
 }
