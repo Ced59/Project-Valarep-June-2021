@@ -2,6 +2,7 @@
 using Dto;
 using InterfacesContrats.Logger;
 using InterfacesContrats.RepositoryInterfaces;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace WebAPI.Controllers
 {
     [EnableCors("*", "*", "*")]
     [ApiController]
+    [Authorize]
     [Route("stationservice")]
     public class StationServiceController : ControllerBase
     {

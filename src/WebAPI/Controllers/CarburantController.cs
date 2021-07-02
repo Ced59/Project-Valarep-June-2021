@@ -13,6 +13,7 @@ namespace WebAPI.Controllers
 {
     [EnableCors("*", "*", "*")]
     [ApiController]
+    [Authorize]
     [Route("carburant")]
     public class CarburantController : ControllerBase
     {
