@@ -74,7 +74,16 @@ namespace Repositories
                                           {
                                               IdCa = Carbu.IdCa,
                                               Libelle = Carbu.Libelle,
-                                              CodeEu = Carbu.CodeEu
+                                              CodeEu = Carbu.CodeEu,
+                                              Releves = (from c in Context.Carburants
+                                                         join r in Context.Releves on c.IdCa equals r.CarburantId
+                                                         where ((id == r.StationServiceId) && (Carbu.IdCa == r.CarburantId))
+                                                         select new Releve
+                                                         {
+                                                             IdRe = r.IdRe,
+                                                             Date = r.Date,
+                                                             Prix = r.Prix,
+                                                         }).OrderBy(x => x.Date).ToList()
                                           }
                                           ).ToList()
                         };
@@ -148,7 +157,16 @@ namespace Repositories
                                           {
                                               IdCa = Carbu.IdCa,
                                               Libelle = Carbu.Libelle,
-                                              CodeEu = Carbu.CodeEu
+                                              CodeEu = Carbu.CodeEu,
+                                              Releves = (from c in Context.Carburants
+                                                         join r in Context.Releves on c.IdCa equals r.CarburantId
+                                                         where ((StationServices.IdSt == r.StationServiceId) && (Carbu.IdCa == r.CarburantId))
+                                                         select new Releve
+                                                         {
+                                                             IdRe = r.IdRe,
+                                                             Date = r.Date,
+                                                             Prix = r.Prix,
+                                                         }).OrderBy(x => x.Date).ToList()
                                           }
                                           ).ToList()
                         };

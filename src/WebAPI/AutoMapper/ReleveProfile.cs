@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Dto;
+using Entities.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +12,7 @@ namespace WebAPI.AutoMapper
     {
         public ReleveProfile()
         {
-
+            CreateMap<Releve, ReleveDto>();
         }
     }
 }
